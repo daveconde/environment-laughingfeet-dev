@@ -1,38 +1,75 @@
 autoUpdate:
   enabled: false
   schedule: ""
+bootConfigURL: https://github.com/cloudbees/cloudbees-jenkins-x-boot-config.git
 cluster:
-  clusterName: ""
-  environmentGitOwner: ""
-  environmentGitPublic: true
-  project: ""
   azure: {}
+  clusterName: laughingfeet
+  environmentGitOwner: daveconde
+  environmentGitPublic: true
+  gitKind: github
+  gitName: github
+  gitServer: https://github.com
+  namespace: jx
+  project: apps-dev-229310
   provider: gke
-  zone: ""
-gitops: true
+  registry: gcr.io
+  zone: europe-west1-c
 environments:
-  - key: dev
-  - key: staging
-  - key: production
+- ingress:
+    domain: 34.76.13.235.nip.io
+    externalDNS: false
+    namespaceSubDomain: -jx.
+    tls:
+      email: ""
+      enabled: false
+      production: false
+  key: dev
+- ingress:
+    domain: ""
+    externalDNS: false
+    namespaceSubDomain: ""
+    tls:
+      email: ""
+      enabled: false
+      production: false
+  key: staging
+- ingress:
+    domain: ""
+    externalDNS: false
+    namespaceSubDomain: ""
+    tls:
+      email: ""
+      enabled: false
+      production: false
+  key: production
+gitops: true
 ingress:
-  domain: ""
+  domain: 34.76.13.235.nip.io
   externalDNS: false
+  namespaceSubDomain: -jx.
   tls:
     email: ""
     enabled: false
     production: false
 kaniko: true
+repository: nexus
 secretStorage: vault
 storage:
+  backup:
+    enabled: false
+    url: ""
   logs:
     enabled: true
-    url: ""
+    url: gs://laughingfeet-logs-4bd0383f-4240-4314-95fe-ab6ebaeb529d
   reports:
     enabled: true
-    url: ""
+    url: gs://laughingfeet-reports-6a2aec5d-a2a7-45ec-8fae-0e3b7b6aea
   repository:
     enabled: true
-    url: ""
+    url: gs://laughingfeet-repository-6338b7a9-c680-40f2-8626-7de7775
+vault: {}
+velero: {}
 versionStream:
   ref: 2.0.1005-cjxd5-SNAPSHOT-66
   url: https://github.com/cloudbees/cloudbees-jenkins-x-versions.git
