@@ -3,12 +3,12 @@ kind: App
 metadata:
   annotations:
     jenkins.io/chart-description: UI for the CloudBees Jxui V3 product
-    jenkins.io/chart-repository: https://charts.cloudbees.com/cjxd/cloudbees
+    jenkins.io/chart-repository: http://chartmuseum.jenkins-x.io
   creationTimestamp: null
   labels:
-    chart: jx-app-ui-0.1.14
+    chart: jx-app-ui-0.1.26
     jenkins.io/app-name: jx-app-ui
-    jenkins.io/app-version: 0.1.14
+    jenkins.io/app-version: 0.1.26
     jenkins.io/ui-resource: "true"
   name: jx-app-ui-jx-app-ui
 spec:

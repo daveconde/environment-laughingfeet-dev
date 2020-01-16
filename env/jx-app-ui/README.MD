@@ -2,6 +2,6 @@
 
 |App Metadata||
 |---|---|
-| **Version** | 0.1.14 |
+| **Version** | 0.1.26 |
 | **Description** | UI for the CloudBees Jxui V3 product |
-| **Chart Repository** | https://charts.cloudbees.com/cjxd/cloudbees |
+| **Chart Repository** | http://chartmuseum.jenkins-x.io |
