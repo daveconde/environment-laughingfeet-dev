@@ -16,7 +16,9 @@ cluster:
   registry: gcr.io
   zone: europe-west1-c
 environments:
-- ingress:
+- gitKind: github
+  gitServer: https://github.com
+  ingress:
     cloud_dns_secret_name: external-dns-gcp-sa
     domain: cjxd4.dconde.jenkins-x.rocks
     externalDNS: true
@@ -26,7 +28,12 @@ environments:
       enabled: true
       production: true
   key: dev
-- ingress:
+  owner: daveconde
+  promotionStrategy: Never
+  repository: environment-laughingfeet-dev
+- gitKind: github
+  gitServer: https://github.com
+  ingress:
     domain: ""
     externalDNS: false
     namespaceSubDomain: ""
@@ -35,7 +42,12 @@ environments:
       enabled: false
       production: false
   key: staging
-- ingress:
+  owner: daveconde
+  promotionStrategy: Auto
+  repository: environment-laughingfeet-staging
+- gitKind: github
+  gitServer: https://github.com
+  ingress:
     domain: ""
     externalDNS: false
     namespaceSubDomain: ""
@@ -44,7 +56,11 @@ environments:
       enabled: false
       production: false
   key: production
+  owner: daveconde
+  promotionStrategy: Manual
+  repository: environment-laughingfeet-production
 gitops: true
+helmfile: true
 ingress:
   cloud_dns_secret_name: external-dns-gcp-sa
   domain: cjxd4.dconde.jenkins-x.rocks
@@ -71,8 +87,10 @@ storage:
     enabled: true
     url: gs://laughingfeet-repository-6338b7a9-c680-40f2-8626-7de7775
 vault: {}
-velero: {}
+velero:
+  schedule: ""
+  ttl: ""
 versionStream:
-  ref: 2.0.1005-cjxd5-SNAPSHOT-66
+  ref: v0.0.16
   url: https://github.com/cloudbees/cloudbees-jenkins-x-versions.git
 webhook: prow
